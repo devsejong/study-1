@@ -1,0 +1,56 @@
+= Akka
+
+=== 1주
+
+. Akka
+** https://www.slideshare.net/jbugkorea/ss-39607946[Actor Model?]
+**  Scala로 구성됨
+**  Java, Scala API 제공 
+
+. Actor
+** 규모 확장성이 좋은 시스템을 개발하는데 사용함
+** Akka의 Actor Model을 사용하고 있으나 Erlang이랑 다름
+** Actor는 Behavior, State, Mailbox로 구성됨
+** Actor사이에 공유된 자원은 없음
+** Message 통신만 가능함
+** Actor가 수행되는 모든 것은 비동기 처리
+** 송신
+*** 메세지 통신
+*** 비동기
+*** 동시성 모델은 불변성이 절대적으로 필요함
+** 생성
+*** 액터는 다른 엑터를 생성할 수 있음
+*** Actor가 Actor를 생성할 수 있기 때문에 관리자 역할을 하는 것이 Supervisor, 활동하는 역할은 Worker
+*** 트리 구조
+** 상태 변화
+** 감독 
+*** Supervisor는 Worker 상태 감시
+*** Worker는 다른 Worker를 신경쓰지 않음
+
+. Actor Model in Akka
+** ActorRef
+*** 모든 메세지는 ActorRef를 통함
+** Dispatcher
+*** MailBox에 있는 메세지를 처리하라고 알리는 역할을 함
+*** Push 시점을 정할 수 없지만 하나의 Actor나 그룹단위 Actor를 Dispatcher가 관리하느냐 설정이 가능함
+
+. 기존방식과 Actor Scale Up & Scale Out 차이점
+|===
+| 목표 | 일반 | Actor 
+
+| 애플리케이션이 중지되더라도 데이터 망가지지 않게 함 
+| 데이터베이스 의존 
+| 메모리 상태 유지. 변경되면 로그 파일 저장. 재시작되더라도 로그파일 읽어옴
+
+| 상호작용 기능 제공
+| 이벤트 드리븐으로 구현
+| 관심 있는 부분이나 중요한 이벤트때만 Actor에게 통보
+
+| 서비스 분리
+| Message Queue 추가
+| 이미 Message 주고받는 형태로 구현됨
+
+| Exception 발생 시, 서비스 지속
+| 실패 시나리오를 발생하고 예외 상황에 대해 코드를 작성해야함
+| 문제가 생긴 Actor만 처리. 다른 Actor에 영향을 끼치지 않음
+|===

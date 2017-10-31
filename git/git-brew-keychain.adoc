@@ -1,4 +1,5 @@
 = The GitHub credentials in the macOS keychain may be invalid
+
 . 문제 : brew search 명령어 치다가 해당 에러 발생
 . 해결
 ** https://gist.github.com/christopheranderton/8644743[Homebrew Github API Token]

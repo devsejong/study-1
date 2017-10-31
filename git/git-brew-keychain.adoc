@@ -1,0 +1,18 @@
+= The GitHub credentials in the macOS keychain may be invalid
+. 문제 : brew search 명령어 치다가 해당 에러 발생
+. 해결
+** https://gist.github.com/christopheranderton/8644743[Homebrew Github API Token]
+** https://github.com/settings/tokens/new?scopes=&description=Homebrew[클릭해서 토큰 생성]
+** 터미널 접속
+
+----
+vi ~/.bash_profile
+
+내용추가
+export HOMEBREW_GITHUB_API_TOKEN=[발급받은 토큰번호]
+
+source .bash_profile
+----
+
+
+

@@ -26,7 +26,8 @@
 ** var name: type = value
 
 * 타입
-** scala-type.png
+
+image::scala-type.png[Scala Type]
 
 * 숫자
 ** Primitive Type이 존재하지 않음
@@ -88,5 +89,3 @@ res8: String = iphone6s
 . https://medium.com/@lazysoul/함수형-프로그래밍이란-d881230f2a5e[함수형 프로그래밍 패러다임2]
 . https://medium.com/@lazysoul/functional-programming-%EC%97%90%EC%84%9C-1%EA%B8%89-%EA%B0%9D%EC%B2%B4%EB%9E%80-ba1aeb048059[일급객체]
 . http://docs.scala-lang.org/tour/tour-of-scala.html[Scala Tutorial]
-
-
